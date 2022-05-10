@@ -35,4 +35,39 @@ class SortAlgorithms {
 
     return list;
   }
+
+  static List<T> mergeSort<T extends num>(List<T> list) {
+    if (list.length <= 1) {
+      return list;
+    }
+
+    int middle = list.length ~/ 2;
+
+    List<T> left = list.sublist(0, middle);
+    List<T> right = list.sublist(middle);
+
+    return merge(mergeSort(left), mergeSort(right));
+  }
+
+  static List<T> merge<T extends num>(List<T> left, List<T> right) {
+    List<T> result = [];
+
+    while (left.isNotEmpty && right.isNotEmpty) {
+      if (left.first <= right.first) {
+        result.add(left.first);
+        left.removeAt(0);
+      } else {
+        result.add(right.first);
+        right.removeAt(0);
+      }
+
+      if (left.isEmpty) {
+        result.addAll(right);
+      } else if (right.isEmpty) {
+        result.addAll(left);
+      }
+    }
+
+    return result;
+  }
 }

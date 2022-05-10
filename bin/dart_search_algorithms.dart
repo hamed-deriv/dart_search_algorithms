@@ -7,4 +7,5 @@ void main(List<String> arguments) {
 
   print(SortAlgorithms.insertionSort([10, 15, 35, 60, 1, 100, 100, 40]));
   print(SortAlgorithms.selectionSort([10, 15, 35, 60, 1, 100, 100, 40]));
+  print(SortAlgorithms.mergeSort([10, 15, 35, 60, 1, 100, 100, 40]));
 }
